@@ -16,14 +16,21 @@ connectDB();
 app.use(express.json({ limit: "50mb", extended: true }));
 app.use(express.urlencoded({ limit: "50mb", extended: true }));
 
+// app.use(cors(
+//   {
+//     origin: "http://localhost:3000",
+//     credentials: true
+//   }
+// ));
+
 app.use(cors(
   {
-    origin: "http://localhost:3000",
+    origin: "https://travely-frontend.vercel.app",
     credentials: true
   }
 ));
 
-//to accept body data
+//to accept body data 
 
 //to use json
 
