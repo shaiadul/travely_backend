@@ -48,14 +48,14 @@ app.use("/api/vehicle/images", express.static(path.join(__dirname, "images")));
 app.use("/api/vehiclereservation", reservationRouter);
 
 //chamith
-const hotels = require('./routes/hotels');
-const rooms = require('./routes/rooms');
-const hotelreservation = require('./routes/hotelReservationRoute');
+const hotels = require("./routes/hotels");
+const rooms = require("./routes/rooms");
+const hotelreservation = require("./routes/hotelReservationRoute");
 
-app.use('/api/hotels', hotels);
-app.use('/api/rooms', rooms);
-app.use('/api/hotelreservation',hotelreservation)
-app.use('/api/hotels/images', express.static(path.join(__dirname, 'images')));
+app.use("/api/hotels", hotels);
+app.use("/api/rooms", rooms);
+app.use("/api/hotelreservation", hotelreservation);
+app.use("/api/hotels/images", express.static(path.join(__dirname, "images")));
 
 //navindi
 const restaurantRoute = require("./routes/restaurantRoute.js");
@@ -82,20 +82,18 @@ app.use("/api/seatBookings", seatBookingRouter);
 const flightBookingRouter = require("./routes/SeatBookingFlight");
 app.use("/api/flight", flightBookingRouter);
 
-
 // dinidu
-const refundRouter = require("./routes/RefundRoute")
-app.use("/api/refund",refundRouter)
+const refundRouter = require("./routes/RefundRoute");
+app.use("/api/refund", refundRouter);
 
-const EmployeeRouter = require("./routes/EmployeeRoute")
-app.use("/api/employee",EmployeeRouter)
+const EmployeeRouter = require("./routes/EmployeeRoute");
+app.use("/api/employee", EmployeeRouter);
 
-const SalaryRouter = require("./routes/SalaryRoute")
-app.use("/api/salary",SalaryRouter)
+const SalaryRouter = require("./routes/SalaryRoute");
+app.use("/api/salary", SalaryRouter);
 
-const RecordRouter = require("./routes/FinanceHealth")
-app.use("/api/record",RecordRouter)
-
+const RecordRouter = require("./routes/FinanceHealth");
+app.use("/api/record", RecordRouter);
 
 //hansika
 const ActivityRoute = require("./routes/activityRoute");
@@ -104,8 +102,72 @@ const ReservationRoute = require("./routes/reservationRoute.js");
 app.use("/api/activities", ActivityRoute);
 app.use("/api/reservations", ReservationRoute);
 
+// app.get("/", (req, res) => {
+//   res.send("API is Running Succesfully");
+// });
+
 app.get("/", (req, res) => {
-  res.send("API is Running Succesfully");
+  res.send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>API Status</title>
+      <style>
+        body {
+          margin: 0;
+          font-family: Arial, sans-serif;
+          background: linear-gradient(135deg, #6a11cb, #2575fc);
+          color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+        .container {
+          text-align: center;
+          max-width: 600px;
+        }
+        h1 {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        p {
+          font-size: 1.5rem;
+          line-height: 1.8;
+          margin-bottom: 1.5rem;
+        }
+        a {
+          display: inline-block;
+          background: #fff;
+          color: #6a11cb;
+          text-decoration: none;
+          padding: 10px 20px;
+          border-radius: 5px;
+          font-size: 1rem;
+          font-weight: bold;
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+          transition: all 0.3s ease;
+        }
+        a:hover {
+          background: #f4f4f4;
+          color: #2575fc;
+          transform: translateY(-3px);
+          box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>API is Running Successfully 🚀</h1>
+        <p>Welcome to your Express API. Everything is set up and ready to go!</p>
+        <a href="#">View Documentation</a>
+      </div>
+    </body>
+    </html>
+  `);
 });
 
 /*app.get('/api/chat',(req,res) => {
